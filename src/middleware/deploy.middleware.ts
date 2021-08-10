@@ -13,7 +13,7 @@ class AuthMiddleware extends MiddlewareCore {
     return (req: Request, _res: Response, next: NextFunction) => {
       const token = req.headers[AUTH_DEPLOY_HEADER] as string;
 
-      if (token === AppConfig.secret) {
+      if (token === AppConfig.deployToken) {
         return next();
       }
 

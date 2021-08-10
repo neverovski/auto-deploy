@@ -64,54 +64,36 @@ export class Logger {
     method.apply(this, args);
   }
 
-  /**
-   * Fatal error
-   */
   fatal(message: string, error: Error, meta?: any): void {
     if (AppConfig.env !== ENV_TEST) {
       this.fatalLogger.fatal(message, meta || error.toString());
     }
   }
 
-  /**
-   * Error
-   */
   error(message: string, error: Error, meta?: any): void {
     if (AppConfig.env !== ENV_TEST) {
       this.errorLogger.error(message, meta || error.toString());
     }
   }
 
-  /**
-   * Warn
-   */
   warn(message: string, error: Error, meta?: any): void {
     if (AppConfig.env !== ENV_TEST) {
       this.warnLogger.warn(message, meta || error.toString());
     }
   }
 
-  /**
-   * Info
-   */
   info(message: string, meta: any = {}): void {
     if (AppConfig.env !== ENV_TEST) {
       this.infoLogger.info(message, Object.keys(meta).length ? meta : '');
     }
   }
 
-  /**
-   * Debug
-   */
   debug(message: string, meta: any = {}): void {
     if (AppConfig.env !== ENV_TEST) {
       this.debugLogger.debug(message, Object.keys(meta).length ? meta : '');
     }
   }
 
-  /**
-   * Trace
-   */
   trace(message: string, meta: any = {}): void {
     if (AppConfig.env !== ENV_TEST) {
       this.traceLogger.trace(message, Object.keys(meta).length ? meta : '');

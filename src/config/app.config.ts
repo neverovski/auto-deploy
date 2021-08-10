@@ -13,7 +13,7 @@ class AppConfig extends ConfigCore {
   readonly name: string;
   readonly port: number;
   readonly host: string;
-  readonly secret: string;
+  readonly deployToken: string;
   readonly pathFileDeploy: string;
 
   constructor() {
@@ -35,8 +35,8 @@ class AppConfig extends ConfigCore {
       this.joi.string().required(),
       'http://localhost',
     );
-    this.secret = this.set<string>(
-      'APP_SECRET',
+    this.deployToken = this.set<string>(
+      'SECRET_DEPLOY_TOKEN',
       this.joi.string().required(),
       'localhost',
     );
