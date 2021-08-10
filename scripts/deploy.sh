@@ -1,4 +1,7 @@
 #!/bin/sh
+
+echo "### Description - example"
+
 cd ../
 
 if ! [ -x "$(command -v docker-compose)" ]; then

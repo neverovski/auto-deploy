@@ -4,40 +4,36 @@
 
 ## Deploy you Node.js app in production and use it to automate your deployment. Use a webhook GitHub, BitBucket, GitLab or other.
 
-### Generating a new SSH key.
+### Before starting - dev stage
 ```bash
-$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-$ cat ~/.ssh/id_rsa.pub
-```
-### Add your SSH key to the ssh-agent.
-
-Start the ssh-agent in the background.
-
-```bash
-$ eval "$(ssh-agent -s)"
+$ cp .env.example .env
+$ docker-compose up -d --build
+$ npm run start:dev
 ```
 
-Add your SSH private key to the ssh-agent.
-
+### Before starting - prod stage
 ```bash
-$ ssh-add -K ~/.ssh/id_rsa
+$ cp .env.example .env
+$ docker-compose up -d --build
+$ npm run start:prod
 ```
 
-After that, open ~/.ssh/config file in some editor (create on if you don’t find it), then add following in that file:
+## Next steps
+### Notifications
+  - [x] Email
+  - [ ] Telegram
+  - [ ] Slack
+  - [ ] ...
 
-```bash
-$ nano ~/.ssh/config
+## Usage
 
-Host *
-  IgnoreUnknown AddKeysToAgent,UseKeychain
-  UseKeychain yes
-  AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_rsa
+- Set header: "x-deploy-token: SECRET_DEPLOY_TOKEN"
+- Сall webhook: http://121.0.0.1/deploy/webhook
 
-$ chmod 600 ~/.ssh/config
-```
+## Contribution
 
-### Start server
-```bash
-$ node server.js
-```
+Happy to get your feedback, but also you are feel free to raise a pull request.
+
+## License
+
+This library is released under the MIT License.

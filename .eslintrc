@@ -11,6 +11,7 @@
     "sort-class-members" // npm module eslint-plugin-sort-class-members
   ],
   "extends": [
+    "airbnb-base", // npm module eslint-config-airbnb-base
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",

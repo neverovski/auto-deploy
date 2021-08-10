@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  deploy-redis:
+    image: redis:6
+    container_name: deploy-redis
+    networks:
+      - auto-deploy
+    ports:
+      - 6363:6379
+    restart: unless-stopped
+
+networks:
+  auto-deploy:
+    name: auto-deploy
