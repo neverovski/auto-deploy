@@ -8,7 +8,7 @@ import {
   AUTH_DEPLOY_HEADER,
 } from '@utils/index';
 
-class AuthMiddleware extends MiddlewareCore {
+class DeployMiddleware extends MiddlewareCore {
   handler(): RequestHandler {
     return (req: Request, _res: Response, next: NextFunction) => {
       const token = req.headers[AUTH_DEPLOY_HEADER] as string;
@@ -22,4 +22,4 @@ class AuthMiddleware extends MiddlewareCore {
   }
 }
 
-export default new AuthMiddleware();
+export default new DeployMiddleware();
