@@ -61,16 +61,19 @@ export default class Server {
 
       process.on('unhandledRejection', (reason) => {
         const error = 'Error - unhandled rejection';
+
         Logger.error('unhandledRejection', new Error(error), reason);
       });
 
       process.on('rejectionHandled', (reason) => {
         const error = 'Error - rejection handled';
+
         Logger.warn('rejectionHandled', new Error(error), reason);
       });
 
       process.on('multipleResolves', (type, promise, value) => {
         const error = 'Error - multiple resolves';
+
         Logger.error('multipleResolves', new Error(error), {
           type,
           promise,

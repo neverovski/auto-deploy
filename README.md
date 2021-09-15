@@ -19,11 +19,20 @@ $ npm run start:prod
 ```
 
 ## Next steps
-### Notifications
-  - [x] Email
-  - [ ] Telegram
-  - [ ] Slack
-  - [ ] ...
+  - Notifications
+    - [x] Email
+    - [ ] Telegram
+    - [ ] Slack
+    - [ ] ...
+
+### 1. Why is my git pre-commit hook not executable by default?
+
+- Because files are not executable by default; they must be set to be executable.
+
+```
+chmod ug+x .husky/*
+chmod ug+x .git/hooks/*
+```
 
 ## Usage
 

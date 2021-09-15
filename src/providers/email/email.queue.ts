@@ -42,6 +42,7 @@ EventEmitter.once('start', () => {
         subject,
         text,
       });
+
       await job.progress(100);
 
       return Promise.resolve(result);

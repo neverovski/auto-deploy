@@ -23,6 +23,7 @@ class ErrorMiddleware extends MiddlewareCore {
       }
 
       const errorRes = new HttpException(response);
+
       Logger.error(errorRes.message, error);
 
       res.status(errorRes.status).json(errorRes);
