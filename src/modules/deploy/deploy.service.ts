@@ -1,8 +1,9 @@
 import { exec } from 'child_process';
 
 import { AppConfig } from '@config/index';
+import { Logger } from '@core/index';
 import { EmailQueue, EMAIL_DEPLOY } from '@providers/index';
-import { responseOk, HttpExceptionType, Logger } from '@utils/index';
+import { responseOk, HttpExceptionType } from '@utils/index';
 
 import { IDeployService } from './interface';
 

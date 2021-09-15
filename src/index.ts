@@ -1,20 +1,21 @@
 import { AppConfig } from '@config/index';
+import { Logger } from '@core/index';
 import Middleware, { ErrorMiddleware } from '@middleware/index';
-import { EventEmitter, Logger } from '@utils/helpers';
+import { EventEmitter } from '@utils/index';
 
 import Server from './server';
 
 const app = new Server({
   port: Number(AppConfig.port),
-  middleware: Middleware,
+  initMiddleware: Middleware,
   errorMiddleware: ErrorMiddleware,
 });
 
 app
-  .start()
-  .then((serverParams) => {
+  .init()
+  .then(() => {
     EventEmitter.emit('start');
-    Logger.info('Server initialized...', serverParams);
+    Logger.info('Server start initialization...');
     Logger.debug('--- APP CONFIG ---');
     Logger.debug(`HOST: ${AppConfig.host}`);
     Logger.debug(`PORT: ${AppConfig.port}`);
