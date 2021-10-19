@@ -13,3 +13,13 @@ export enum HttpExceptionType {
   ROUTE_NOT_FOUND = 'ROUTE_NOT_FOUND',
   SERVER_ERROR = 'SERVER_ERROR',
 }
+
+export enum HttpStatus {
+  OK = 200,
+  NoContent = 204,
+  BadRequest = 400,
+  Unauthorized = 401,
+  Forbidden = 403,
+  NotFound = 404,
+  InternalServerError = 500,
+}

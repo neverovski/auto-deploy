@@ -33,11 +33,11 @@ EventEmitter.once('close', async () => {
 EmailQueue.on('error', Logger.error);
 
 EventEmitter.once('start', () => {
-  EmailQueue.process(EMAIL_DEPLOY, async (job: Bull.Job<DeployEmail>) => {
+  void EmailQueue.process(EMAIL_DEPLOY, async (job: Bull.Job<DeployEmail>) => {
     try {
       const { subject, text } = job.data;
 
-      const result = await EmailService.sendEmail({
+      await EmailService.sendEmail({
         to: EmailConfig.mailTo,
         from: EmailConfig.username,
         subject,
@@ -46,8 +46,9 @@ EventEmitter.once('start', () => {
 
       await job.progress(100);
 
-      return Promise.resolve(result);
+      return await Promise.resolve();
     } catch (err) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       Logger.error(`${EMAIL_QUEUQ} ${EMAIL_DEPLOY}`, err);
 
       return Promise.reject(err);

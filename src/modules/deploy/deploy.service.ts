@@ -14,7 +14,7 @@ export default class DeployService implements IDeployService {
         Logger.error('DeployService - webhook', error);
       }
 
-      EmailQueue.add(EMAIL_DEPLOY, {
+      void EmailQueue.add(EMAIL_DEPLOY, {
         subject: `Deploy completed ${error ? 'with error' : 'successfully'}`,
         text: error ? stderr : stdout,
       });

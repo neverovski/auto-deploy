@@ -17,12 +17,11 @@ app
     EventEmitter.emit('start');
     Logger.info('Server start initialization...');
     Logger.debug('--- APP CONFIG ---');
-    Logger.debug(`HOST: ${AppConfig.host}`);
     Logger.debug(`PORT: ${AppConfig.port}`);
-    Logger.debug(`NAME: ${AppConfig.name}`);
   })
   .catch((error) => {
     EventEmitter.emit('close');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     Logger.error('Server fails to initialize...', error);
     process.exit(1);
   });

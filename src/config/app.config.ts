@@ -9,12 +9,12 @@ import {
 } from '@utils/constants';
 
 class AppConfig extends ConfigCore {
-  readonly env: string;
-  readonly name: string;
-  readonly port: number;
-  readonly host: string;
   readonly deployToken: string;
+  readonly env: string;
+  readonly host: string;
+  readonly name: string;
   readonly pathFileDeploy: string;
+  readonly port: number;
 
   constructor() {
     super();
